@@ -1,0 +1,96 @@
+<html>
+<script>
+function inter()
+{ alert("oooppppssss\n bye!");
+}
+function dwork()
+{
+  var name, age, password, pincode, sexcode, contact;
+  name= document.f1.t1.value;
+  age= document.f1.t2.value;
+  password= document.f1.t3.value;
+  email= document.f1.t4.value;
+  contact=document.f1.t6.value;
+  var reg = /^([a-z0-9_\-\.])+\@([a-z0-9_\-\.])+\.([a-z]{2,4})$/;
+    if (document.f1.t5[0].checked==true)
+  {
+  sexcode="Male";
+  }
+  else
+  {
+  sexcode="Female";
+  }
+    for(var i=0; i<name.length;i++)
+ { 
+ if (name.charAt(i)<'A' || name.charAt(i)>'Z')
+ {
+    alert("Sorry please enter a name in capital letter");
+	break;
+ }
+ }
+  if ( age<1 || age>27)
+ {
+   alert("please fill the form only if your age is above 27 ");
+   document.f1.t2.focus();
+ }
+  else if (password==name)
+ {
+   alert("please enter a genuine password");
+   document.f1.t3.focus();
+ }
+  else if (contact.length!=10)
+ {
+   alert("please enter a valid contact number of 10 digits");
+   document.f1.t6.focus();
+ }
+
+ else if (document.f1.t5[0].checked==false && document.f1.t5[1].checked==false)
+ {
+   alert("please choose the sexcode");
+   document.f1.t5.focus();
+ }
+ else if  (reg.test(email) == false) 
+ {
+	alert("please enter a valid email address");
+	document.f1.t4.focus();
+ }
+ else 
+alert("HELLO \n welcome " + name+ "\n AGE "+age +"\n Password " +password+"\n email "+email + "\n sexcode " + sexcode + "\n Contact Number  #" + contact);
+}
+</script>
+<body>
+<center>
+<h1>Basic Details</h1>
+<form name="f1">
+<table width ="80%" border =1 cellspacing =10px >
+<tr>
+<td width ="50%">Name</td>
+<td><input type ="text" width ="100%" name ="t1"></td></tr>
+<tr>
+<td>Age</td>
+<td><input type ="text" name ="t2"></td>
+</tr>
+<tr>
+<td>Password</td>
+<td><input type ="password" name ="t3"></td>
+</tr>
+<tr>
+<td>Email Address</td>
+<td><input type ="text" name ="t4"></td>
+</tr>
+<tr>
+<td>Sexcode</td>
+<td><input type ="radio" name ="t5">Male <br><input type ="radio" name ="t5">Female </td>
+</tr>
+<tr>
+<td>Contact Number</td>
+<td><input type ="text" name ="t6"></td>
+</tr>
+</table>
+<br><br>
+<input type="button" value="ok" onclick="dwork()">
+<input type="button" value="cancel" onclick="inter()">
+</form>
+</center>
+</body>
+</html>
